@@ -49,6 +49,8 @@ const three = (req, res, next) => {
   res.send("finished!");
 };
 
+app.get(/^\/chain(.html)?/, [one, two, three]);
+
 // 404 page
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
