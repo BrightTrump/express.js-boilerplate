@@ -1,11 +1,15 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const cors = require("cors");
 const { logger } = require("./middleware/logEvents");
 const PORT = process.env.PORT || 3500;
 
 // Custom middleware
 app.use(logger);
+
+//Cross Origin Resources Sharing
+app.use(cors());
 
 // Built-in middleware to handle urlencoded data
 // in order words, form data
