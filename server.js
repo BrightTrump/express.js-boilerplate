@@ -4,13 +4,27 @@ const path = require("path");
 const fs = require("fs");
 const cors = require("cors");
 const { logger } = require("./middleware/logEvents");
+const errorHandler = require("./middleware/errorHandler");
 const PORT = process.env.PORT || 3500;
 
 // Custom middleware
 app.use(logger);
 
+const whiteList = [
+  "https://www.google.com",
+  "http://localhost:127.0.0.1:5500",
+  "http://localhost:3500",
+];
+const corsOptions = {
+  origin: (origin, callback) => {
+    whiteList.indexOf(origin) !== -1 || !origin
+      ? callback(null, true)
+      : callback(new Error("Not allowed by CORS"));
+  },
+  optionsSuccessStatus: 200,
+};
 //Cross Origin Resources Sharing
-app.use(cors());
+app.use(cors(corsOptions));
 
 // Built-in middleware to handle urlencoded data
 // in order words, form data
@@ -71,9 +85,20 @@ const three = (req, res, next) => {
 
 app.get(/^\/chain(.html)?/, [one, two, three]);
 
-// 404 page
+// 404 page  Note: (app.use doesn't accept regex)
+// app.all("*", (req, res) => {
+//   res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
+// });
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
+  res.status(404);
+  if (req.accepts("html")) {
+    res.sendFile(path.join(__dirname, "views", "404.html"));
+  } else if (req.accepts("json")) {
+    res.json({ error: "404 Not Found" });
+  } else {
+    res.type("txt").send("404 Not Found");
+  }
 });
 
+app.use(errorHandler);
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
