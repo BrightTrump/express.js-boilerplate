@@ -76,3 +76,18 @@
 2025-10-04T10:25:25.263Z	GET	origin=[no Origin header]	referer=http://localhost:3500/t	url=/css/style.css	ua=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 2025-10-04T10:25:29.309Z	GET	origin=[no Origin header]	referer=[no Referer header]	url=/	ua=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 2025-10-04T10:25:29.464Z	GET	origin=[no Origin header]	referer=http://localhost:3500/	url=/css/style.css	ua=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+2025-10-04T11:40:35.365Z	GET	origin=[no Origin header]	referer=[no Referer header]	url=/employees	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:42:45.208Z	POST	origin=[no Origin header]	referer=[no Referer header]	url=/employees	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:43:00.734Z	POST	origin=[no Origin header]	referer=[no Referer header]	url=/employees	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:43:03.966Z	POST	origin=[no Origin header]	referer=[no Referer header]	url=/employees	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:43:05.027Z	POST	origin=[no Origin header]	referer=[no Referer header]	url=/employees	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:43:38.964Z	POST	origin=[no Origin header]	referer=[no Referer header]	url=/employees	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:43:48.435Z	POST	origin=[no Origin header]	referer=[no Referer header]	url=/employees	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:44:10.758Z	POST	origin=[no Origin header]	referer=[no Referer header]	url=/employees	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:45:17.959Z	POST	origin=[no Origin header]	referer=[no Referer header]	url=/employees	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:45:54.108Z	PUT	origin=[no Origin header]	referer=[no Referer header]	url=/employees	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:46:01.522Z	PUT	origin=[no Origin header]	referer=[no Referer header]	url=/employees	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:47:35.342Z	DELETE	origin=[no Origin header]	referer=[no Referer header]	url=/employees	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:47:55.664Z	DELETE	origin=[no Origin header]	referer=[no Referer header]	url=/employees/1	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:48:34.899Z	DELETE	origin=[no Origin header]	referer=[no Referer header]	url=/employees/1	ua=Thunder Client (https://www.thunderclient.com)
+2025-10-04T11:48:45.351Z	DELETE	origin=[no Origin header]	referer=[no Referer header]	url=/employees/1	ua=Thunder Client (https://www.thunderclient.com)
