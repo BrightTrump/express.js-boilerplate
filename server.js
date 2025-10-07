@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const fs = require("fs");
 const cors = require("cors");
+const corsOptions = require("./config/cors-options");
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const PORT = process.env.PORT || 3500;
@@ -10,25 +11,10 @@ const PORT = process.env.PORT || 3500;
 // Custom middleware
 app.use(logger);
 
-const whiteList = [
-  "https://www.google.com",
-  "http://localhost:127.0.0.1:5500",
-  "http://localhost:3500",
-];
-const corsOptions = {
-  origin: (origin, callback) => {
-    whiteList.indexOf(origin) !== -1 || !origin
-      ? callback(null, true)
-      : callback(new Error("Not allowed by CORS"));
-  },
-  optionsSuccessStatus: 200,
-};
 //Cross Origin Resources Sharing
 app.use(cors(corsOptions));
 
-// Built-in middleware to handle urlencoded data
-// in order words, form data
-//'content-type: application/x-www-form-urlencoded'
+// Built-in middleware to handle urlencoded formData
 app.use(express.urlencoded({ extended: false }));
 
 // Built-in middleware for json
