@@ -30,28 +30,31 @@ const createNewEmployee = (req, res) => {
 
 //Update employee
 const updateEmployees = (req, res) => {
-  const employee = data.employees.find(
-    (emp) => emp.id === parseInt(req.body.id)
+  const updateEmployee = data.employees.find(
+    (emp) => emp === parseInt(req.body.id)
   );
-  if (!employee) {
-    res.status(400).json({ message: `Employee ID ${req.body.id} not found` });
-  } else if (req.body.firstname) {
-    employee.firstname = req.body.firstname;
-  } else if (req.body.lastname) employee.lastname = req.body.lastname;
-  const filteredArray = data.employees.filter(
+  if (!employe) {
+    return res
+      .status(400)
+      .json({ message: `Employee ID ${req.body.id}  not found` });
+  }
+  if (req.body.firstname) employee.firstname = req.body.firstname;
+  if (req.body.lastname) employee.lastname = req.body.lastname;
+  const filteredArrays = data.employee.filter(
     (emp) => emp.id !== parseInt(req.body.id)
   );
-  const unsortedArray = [...filteredArray, employee];
+  const unsortedArray = [...filteredArrays, employee];
+
   data.setEmployees(
     unsortedArray.sort((a, b) => (a.id > b.id ? 1 : a.id < b.id ? -1 : 0))
   );
-  res.json(data.employees);
+  res.status(201).json({ message: "Employee updated successfully" });
 };
 
 // Delete employees
-const deleteEmployee = (req, res) => {
-  res.json({ id: req.body.id });
-};
+const deleteEmployee = data.employees.find(
+  (emp) => emp.id === parseInt(req.body.id)
+);
 
 // Delete employees
 // const deleteEmployees = (req, res) => {
