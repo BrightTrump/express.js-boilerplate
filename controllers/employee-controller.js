@@ -29,21 +29,19 @@ const createNewEmployee = (req, res) => {
 };
 
 //Update employee
-const updateEmployees = (req, res) => {
-  const updateEmployee = data.employees.find(
-    (emp) => emp === parseInt(req.body.id)
-  );
-  if (!employe) {
+const updateEmployee = (req, res) => {
+  const employee = data.employees.find((emp) => emp === parseInt(req.body.id));
+  if (!employee) {
     return res
       .status(400)
       .json({ message: `Employee ID ${req.body.id}  not found` });
   }
   if (req.body.firstname) employee.firstname = req.body.firstname;
   if (req.body.lastname) employee.lastname = req.body.lastname;
-  const filteredArrays = data.employee.filter(
+  const filteredArray = data.employees.filter(
     (emp) => emp.id !== parseInt(req.body.id)
   );
-  const unsortedArray = [...filteredArrays, employee];
+  const unsortedArray = [...filteredArray, employee];
 
   data.setEmployees(
     unsortedArray.sort((a, b) => (a.id > b.id ? 1 : a.id < b.id ? -1 : 0))
@@ -52,9 +50,21 @@ const updateEmployees = (req, res) => {
 };
 
 // Delete employees
-const deleteEmployee = data.employees.find(
-  (emp) => emp.id === parseInt(req.body.id)
-);
+const deleteEmployee = (req, res) => {
+  const employee = data.employees.find(
+    (emp) => emp.id === parseInt(req.body.id)
+  );
+  if (!employee) {
+    return res
+      .status(400)
+      .json({ message: `Employee ID ${req.body.id}  not found` });
+  }
+  const filteredArray = data.employees.filter(
+    (emp) => emp.id === parseInt(req.body.id)
+  );
+  data.setEmployees([...filteredArray]);
+  res.status(201).json({ message: "Employee updated successfully" });
+};
 
 // Delete employees
 // const deleteEmployees = (req, res) => {
@@ -65,13 +75,22 @@ const deleteEmployee = data.employees.find(
 // };
 
 const getEmployee = (req, res) => {
-  res.json({ id: req.params.id });
+  const employee = data.employees.find(
+    (emp) => emp.id === parseInt(req.params.id)
+  );
+  if (!employee) {
+    return res
+      .status(400)
+      .json({ message: `Employee ID ${req.body.id}  not found` });
+  }
+
+  res.status(201).json(employee);
 };
 
 module.exports = {
   getAllEmployees,
   createNewEmployee,
-  updateEmployees,
+  updateEmployee,
   deleteEmployee,
   getEmployee,
 };
