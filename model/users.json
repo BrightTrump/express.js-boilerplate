@@ -1,1 +1,22 @@
-[{"username":"BrightTrump","email":"brightmunemu@gmail.com","password":"$2b$10$CLQbl87Q24CQi2GidzFlR.OH4R..NETpViANjs6TCHwUDKSfdVB5m"},{"username":"BrightTrumps","email":"brightmunemu@gmails.com","password":"$2b$10$2.SWU9XjHO05j9qFaljfmuTj89eRHZaVNUhvts6rywKyXcnnyvLJ."}]
+[
+  {
+    "username": "Bright",
+    "email": "brightmunemu@gmail.com",
+    "password": "$2b$10$rMtextRZWqtZPGvkVKZmWuwK0VCX9jh9xrLGmJaOj6AWjc5gxAkmS"
+  },
+  {
+    "username": "BrightTrump",
+    "email": "bright@gmail.com",
+    "password": "$2b$10$JdwlCWpmVfmhu/grbcirjeqyrszkpaxdDWjCPMkYoxBNDhKh2aso2"
+  },
+  {
+    "username": "Btrump",
+    "email": "brighttrump@gmail.com",
+    "password": "$2b$10$AVuU7Y4c8tHMIRAHYSlahORQljOsd5TGDt/K87sFqcP2WPfkY7Qbm"
+  },
+  {
+    "username": "BTrump",
+    "email": "brighttrumps@gmail.com",
+    "password": "$2b$10$tDPvGiVKCyfrMdqPMu1Ge.prNmdYhnh32YPN9evuhf5UcYGsUggSW"
+  }
+]
