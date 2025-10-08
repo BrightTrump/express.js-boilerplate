@@ -30,7 +30,9 @@ const createNewEmployee = (req, res) => {
 
 //Update employee
 const updateEmployee = (req, res) => {
-  const employee = data.employees.find((emp) => emp === parseInt(req.body.id));
+  const employee = data.employees.find(
+    (emp) => emp.id === parseInt(req.body.id)
+  );
   if (!employee) {
     return res
       .status(400)
@@ -49,6 +51,33 @@ const updateEmployee = (req, res) => {
   res.status(201).json({ message: "Employee updated successfully" });
 };
 
+//Update employees
+const updateEmployees = (req, res) => {
+  const updates = req.body; // Expecting an array of employees to update
+  if (!Array.isArray(updates) || updates.length === 0) {
+    return res.status(400).json({ message: "No employee data provided" });
+  }
+
+  let updatedCount = 0;
+
+  updates.forEach((update) => {
+    const employee = data.employees.find(
+      (emp) => emp.id === parseInt(update.id)
+    );
+    if (employee) {
+      if (update.firstname) employee.firstname = update.firstname;
+      if (update.lastname) employee.lastname = update.lastname;
+      updatedCount++;
+    }
+  });
+
+  data.setEmployees([...data.employees]);
+  res.status(201).json({
+    message: `${updatedCount} employee(s) updated successfully`,
+    employees: data.employees,
+  });
+};
+
 // Delete employees
 const deleteEmployee = (req, res) => {
   const employee = data.employees.find(
@@ -60,10 +89,19 @@ const deleteEmployee = (req, res) => {
       .json({ message: `Employee ID ${req.body.id}  not found` });
   }
   const filteredArray = data.employees.filter(
-    (emp) => emp.id === parseInt(req.body.id)
+    (emp) => emp.id !== parseInt(req.body.id)
   );
+
+  // Reassign IDs sequentially (1, 2, 3, ...)
+  // const reorderedArray = filteredArray.map((emp, index) => ({
+  //   ...emp,
+  //   id: index + 1,
+  // }));
+
   data.setEmployees([...filteredArray]);
-  res.status(201).json({ message: "Employee updated successfully" });
+  res
+    .status(201)
+    .json({ message: `Employee with id: ${req.body.id} deleted successfully` });
 };
 
 // Delete employees
@@ -91,6 +129,7 @@ module.exports = {
   getAllEmployees,
   createNewEmployee,
   updateEmployee,
+  updateEmployees,
   deleteEmployee,
   getEmployee,
 };
