@@ -21,9 +21,7 @@ const handleNewUser = async (req, res) => {
   const usernameDuplicate = usersDB.users.find(
     (person) => person.username === user
   );
-  const emailDuplicate = usersDB.users.find(
-    (person) => person.username === user
-  );
+  const emailDuplicate = usersDB.users.find((person) => person.email === email);
   if (usernameDuplicate)
     return res.status(409).json({ message: "Username already exist!" }); // Conflict
   if (emailDuplicate)
@@ -47,21 +45,12 @@ const handleNewUser = async (req, res) => {
   }
 };
 
-//Update user
-
-//Update users
-
-// Delete users
-
-// Delete users
-// const deleteUsers = (req, res) => {
-//   res.json({
-//     firstname: req.body.firstname,
-//     lastname: req.body.lastname,
-//     lastname: req.body.email,
-//   });
-// };
+//User login
+const handleUserLogin = async (req, res) => {
+  const { user, email, pwd } = req.body;
+};
 
 module.exports = {
   handleNewUser,
+  handleUserLogin,
 };
