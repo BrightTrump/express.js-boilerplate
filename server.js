@@ -6,10 +6,16 @@ const cors = require("cors");
 const corsOptions = require("./config/cors-options");
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
+const credentials = require("./middleware/credentials");
+const cookieParser = require("cookie-parser");
 const PORT = process.env.PORT || 3500;
 
 // Custom middleware
 app.use(logger);
+
+// Handle options credentials check - before CORS!
+// and fetch cookies credentials requirement
+app.use(credentials);
 
 //Cross Origin Resources Sharing
 app.use(cors(corsOptions));
@@ -20,6 +26,9 @@ app.use(express.urlencoded({ extended: false }));
 // Built-in middleware for json
 app.use(express.json());
 
+// Built-in middleware for json
+app.use(cookieParser());
+
 //Serve static files
 app.use("/", express.static(path.join(__dirname, "/public")));
 app.use("/subdir", express.static(path.join(__dirname, "/public")));
@@ -28,6 +37,7 @@ app.use("/", require("./routes/root"));
 app.use("/subdir", require("./routes/subdir"));
 app.use("/employees", require("./routes/api/employees"));
 app.use("/users", require("./routes/api/users"));
+app.use("/refresh", require("./routes/api/refresh"));
 
 // app.get("/", (req, res) => {
 //   //res.sendFile("./views/index.html", { root: __dirname });

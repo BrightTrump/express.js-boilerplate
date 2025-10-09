@@ -75,7 +75,7 @@ const handleUserLogin = async (req, res) => {
     const accessToken = jwt.sign(
       { username: foundUser.username },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "30s" }
+      { expiresIn: "60s" }
     );
     const refreshToken = jwt.sign(
       { username: foundUser.username },
@@ -83,7 +83,7 @@ const handleUserLogin = async (req, res) => {
       { expiresIn: "1d" }
     );
     //Saving refresh token with current user
-    const otherUsers = usersDB.users.find(
+    const otherUsers = usersDB.users.filter(
       (person) =>
         (username && person.username === foundUser.username) ||
         (email && person.email === foundUser.email)
@@ -97,14 +97,51 @@ const handleUserLogin = async (req, res) => {
     // res
     //   .status(200)
     //   .json({ success: `User ${foundUser.username} logged in succesfully!` });
-    res.cookie("jwt", refreshToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
+    res.cookie("jwt", refreshToken, {
+      httpOnly: true,
+      sameSite: none,
+      secure: true,
+      maxAge: 24 * 60 * 60 * 1000,
+    });
     res.json({ accessToken });
   } else {
     res.status(401).json({ message: "Invalid credentials" }); //Unauthorized
   }
 };
 
+// User logout
+const handleUserLogout = async (req, res) => {
+  // On the client-side, Cookie, also delete the access token
+  const cookies = req.cookies;
+  if (!cookies?.jwt) return res.status(204); // No content
+  console.log(cookies.jwt);
+
+  const refreshToken = cookies.jwt;
+
+  // Is refresh token in the db?
+  const foundUser = usersDB.users.find(
+    (person) => person.refreshToken === refreshToken
+  );
+  if (!foundUser) {
+    res.clearCookie("jwt", { httpOnly: true });
+    return res.sendStatus(204); // No content
+  }
+  //Delete the refresh token in db
+  const otherUsers = usersDB.users.filter(
+    (person) => person.refreshToken !== foundUser.refreshToken
+  );
+  const currentUser = { ...foundUser, refreshToken: "" };
+  usersDB.setUsers([...otherUsers, currentUser]);
+  await fsPromises.writeFile(
+    path.join(__dirname, "..", "model", "users.json"),
+    JSON.stringify(usersDB.users)
+  );
+  res.clearCookie("jwt", { httpOnly: true }); // Secure: true- Only serves on https
+  res.sendStatus(204);
+};
+
 module.exports = {
   handleNewUser,
   handleUserLogin,
+  handleUserLogout,
 };
