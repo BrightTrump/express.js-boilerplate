@@ -36,6 +36,9 @@ const handleNewUser = async (req, res) => {
     // Store the new user in the DB
     const newUser = {
       username: username,
+      roles: {
+        User: 2001,
+      },
       email: email,
       password: hashedPassword,
     };
@@ -71,9 +74,15 @@ const handleUserLogin = async (req, res) => {
   //Evaluate password
   const match = await bcrypt.compare(password, foundUser.password);
   if (match) {
+    const roles = Object.values(foundUser.roles);
     // Create JWTs
     const accessToken = jwt.sign(
-      { username: foundUser.username },
+      {
+        UserInfo: {
+          username: foundUser.username,
+          roles: roles,
+        },
+      },
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "60s" }
     );

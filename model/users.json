@@ -1,1 +1,29 @@
-[{"username":"Oke2","email":"oke2@gmail.com","password":"$2b$10$RA7traBgw0jpyFGYD8HGoOF5AWrNXwAJUwJwgmZMwdcMvm6JJJn8G"},{"username":"Oke2","email":"oke2@gmail.com","password":"$2b$10$RA7traBgw0jpyFGYD8HGoOF5AWrNXwAJUwJwgmZMwdcMvm6JJJn8G","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik9rZTIiLCJpYXQiOjE3NjAwMTkyNzksImV4cCI6MTc2MDEwNTY3OX0.qelbCCHbeUDppS-Y7UgEDL-WPl2WsXCZZMuqw1H4O4E"},{"username":"Oke2","email":"oke2@gmail.com","password":"$2b$10$RA7traBgw0jpyFGYD8HGoOF5AWrNXwAJUwJwgmZMwdcMvm6JJJn8G","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik9rZTIiLCJpYXQiOjE3NjAwMTk0NzIsImV4cCI6MTc2MDEwNTg3Mn0.XL8OUtQw9zHpoTdz4tkFHysiDljOUnrCx72q3x0ve8o"},{"username":"Oke2","email":"oke2@gmail.com","password":"$2b$10$RA7traBgw0jpyFGYD8HGoOF5AWrNXwAJUwJwgmZMwdcMvm6JJJn8G","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik9rZTIiLCJpYXQiOjE3NjAwMTk2MzIsImV4cCI6MTc2MDEwNjAzMn0.0Mx1vFP6o5KAyNRXtoYTewZm_ZygWfcK-WZRibr20xI"},{"username":"Oke2","email":"oke2@gmail.com","password":"$2b$10$RA7traBgw0jpyFGYD8HGoOF5AWrNXwAJUwJwgmZMwdcMvm6JJJn8G","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik9rZTIiLCJpYXQiOjE3NjAwMTk3OTcsImV4cCI6MTc2MDEwNjE5N30.XHlNNC433OBGd6NncIIC_XtHzZAr8OkSKNw5l0DNDf4"},{"username":"Oke2","email":"oke2@gmail.com","password":"$2b$10$RA7traBgw0jpyFGYD8HGoOF5AWrNXwAJUwJwgmZMwdcMvm6JJJn8G","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik9rZTIiLCJpYXQiOjE3NjAwMjAyNjgsImV4cCI6MTc2MDEwNjY2OH0.ADqmvzb6IrhI2LSflPVI6aC3zqUwgnpzlF68xjJiqGM"},{"username":"Oke2","email":"oke2@gmail.com","password":"$2b$10$RA7traBgw0jpyFGYD8HGoOF5AWrNXwAJUwJwgmZMwdcMvm6JJJn8G","refreshToken":""}]
+[
+  {
+    "username": "Oke2",
+    "roles": {
+      "User": 2001,
+      "Editor": 2001
+    },
+    "email": "oke2@gmail.com",
+    "password": "$2b$10$9sFDfVySfk2plEhjXMzF8uPL6eZgSHBaYVd015KBvWv7YScZmfvp2"
+  },
+  {
+    "username": "BrightTrump",
+    "roles": {
+      "User": 2001,
+      "Editor": 2001,
+      "Admin": 5150
+    },
+    "email": "brightmunemu@gmail.com",
+    "password": "$2b$10$w7nm/CzjvTmeZXir3UnkBetHoQCdm.lbh5Az5fNc33XzIvrgZg8P2"
+  },
+  {
+    "username": "BrightTo",
+    "roles": {
+      "User": 2001
+    },
+    "email": "brighto@gmail.com",
+    "password": "$2b$10$hgAt40x8q/HYH40mKJepkeX2NhlKxjeQNdlbHwOAcLrpBEZNKpqRC"
+  }
+]
