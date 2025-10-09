@@ -94,8 +94,8 @@ const handleUserLogin = async (req, res) => {
     //Saving refresh token with current user
     const otherUsers = usersDB.users.filter(
       (person) =>
-        (username && person.username === foundUser.username) ||
-        (email && person.email === foundUser.email)
+        person.username !== foundUser.username ||
+        person.email !== foundUser.email
     );
     const currentUser = { ...foundUser, refreshToken };
     usersDB.setUsers([...otherUsers, currentUser]);
@@ -108,7 +108,7 @@ const handleUserLogin = async (req, res) => {
     //   .json({ success: `User ${foundUser.username} logged in succesfully!` });
     res.cookie("jwt", refreshToken, {
       httpOnly: true,
-      sameSite: none,
+      sameSite: "none",
       secure: true,
       maxAge: 24 * 60 * 60 * 1000,
     });

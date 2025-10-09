@@ -1,29 +1,29 @@
 [
   {
-    "username": "Oke2",
-    "roles": {
-      "User": 2001,
-      "Editor": 2001
-    },
-    "email": "oke2@gmail.com",
-    "password": "$2b$10$9sFDfVySfk2plEhjXMzF8uPL6eZgSHBaYVd015KBvWv7YScZmfvp2"
+    "username": "Bright1",
+    "roles": { "User": 2001 },
+    "email": "bright@gmail.com",
+    "password": "$2b$10$bBoCoGV31mQo/MnoA3al8.la8Laz.rt/2y4CB456nwynlrV1E2B/i"
   },
   {
-    "username": "BrightTrump",
-    "roles": {
-      "User": 2001,
-      "Editor": 2001,
-      "Admin": 5150
-    },
-    "email": "brightmunemu@gmail.com",
-    "password": "$2b$10$w7nm/CzjvTmeZXir3UnkBetHoQCdm.lbh5Az5fNc33XzIvrgZg8P2"
+    "username": "Bright1",
+    "roles": { "User": 2001 },
+    "email": "bright@gmail.com",
+    "password": "$2b$10$bBoCoGV31mQo/MnoA3al8.la8Laz.rt/2y4CB456nwynlrV1E2B/i",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJyaWdodDEiLCJpYXQiOjE3NjAwNDIwNzMsImV4cCI6MTc2MDEyODQ3M30.GNmoaqa8gt-u1MyzAs4KFBDwq68z8Sm1VBHB3bnJVx4"
   },
   {
-    "username": "BrightTo",
-    "roles": {
-      "User": 2001
-    },
-    "email": "brighto@gmail.com",
-    "password": "$2b$10$hgAt40x8q/HYH40mKJepkeX2NhlKxjeQNdlbHwOAcLrpBEZNKpqRC"
+    "username": "Bright1",
+    "roles": { "User": 2001 },
+    "email": "bright@gmail.com",
+    "password": "$2b$10$bBoCoGV31mQo/MnoA3al8.la8Laz.rt/2y4CB456nwynlrV1E2B/i",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJyaWdodDEiLCJpYXQiOjE3NjAwNDIxNDgsImV4cCI6MTc2MDEyODU0OH0.lOgfrc9-qVgBY3QSLN4djJSsLj58csoBok7u08hQ_8U"
+  },
+  {
+    "username": "Bright1",
+    "roles": { "User": 2001 },
+    "email": "bright@gmail.com",
+    "password": "$2b$10$bBoCoGV31mQo/MnoA3al8.la8Laz.rt/2y4CB456nwynlrV1E2B/i",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJyaWdodDEiLCJpYXQiOjE3NjAwNDIxNTcsImV4cCI6MTc2MDEyODU1N30.jO3IvbwfBGrEQ2oSA520lYPtDxv8PZPeQL5xjbDku1Q"
   }
 ]
